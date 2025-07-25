@@ -26,5 +26,10 @@ export class LoginPage {
       async isLoggedIn() {
         await this.page.locator("a[class = 'nav-link']").filter({ hasText: ' test.acount1 '}).isVisible;
       }
+
+      //draft
+      async isLoginErrorMessageDisplayed() {
+        return await this.page.isVisible("div[class='alert alert-danger']");
+      }
     
 }
