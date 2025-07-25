@@ -16,3 +16,4 @@ Feature: Checkout products as a guest
     When I proceed to checkout
     And I fill in the guest checkout form with valid details
     Then I should see the order confirmation page
+    And I fill in the guest checkout form with valid details
