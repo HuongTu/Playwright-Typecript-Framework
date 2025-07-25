@@ -68,6 +68,15 @@ export class HomePage {
         await this.page.locator('button[title="Continue"]').click();
     }
 
+    //drafting
+    async clickOnContinueButton2() {
+        await this.page.locator('button[title="Continue"]').click();
+    }
+    async selectShippingMethod() {
+        await this.page.locator('#shipping_method input[type="radio"]').first().check();
+        await this.page.locator('button[title="Continue"]').click();
+    }
+
     
     
 }
