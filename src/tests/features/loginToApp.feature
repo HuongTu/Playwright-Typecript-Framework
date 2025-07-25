@@ -5,3 +5,4 @@ Feature: Login to the website
         When I enter a valid username and password
         And I click on the login button
         Then I should be redirected to the homepage
+        And I click on the login button
