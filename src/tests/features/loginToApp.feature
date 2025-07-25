@@ -1,5 +1,5 @@
 Feature: Login to the website
-    @login @regression
+    @login @regression @conduit
     Scenario: Successful login with valid credentials
         Given I navigate to the login page
         When I enter a valid username and password
