@@ -25,3 +25,12 @@ When('I fill in the guest checkout form with valid details', async function (thi
     await this.homePage.fillInBillingDetails();
     await this.homePage.clickOnContinueButton();
 });
+
+When('I confirm the order', async function (this: CustomWorld) {
+    await this.homePage.clickOnConfirmButton();
+});
+
+Then('I should see a confirmation message indicating successful checkout', async function (this: CustomWorld){
+   await this.homePage.verifyOrderSuccessTitle();
+
+});

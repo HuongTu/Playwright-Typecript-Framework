@@ -36,7 +36,7 @@ export class HomePage {
     await this.page.waitForLoadState("networkidle");
     //const cartItem = this.page.;
     await this.page.locator('#cart').getByText(productName).isVisible();
-    await expect(this.page.locator('#cart').getByText(productName)).toBeVisible();
+    expect(this.page.locator('#cart').getByText(productName)).toBeVisible();
 }
 
     async clickOnCheckOutButton(){
@@ -68,13 +68,15 @@ export class HomePage {
         await this.page.locator('button[title="Continue"]').click();
     }
 
-    //drafting
-    async clickOnContinueButton2() {
-        await this.page.locator('button[title="Continue"]').click();
+    async clickOnConfirmButton() {
+        await this.page.locator('#checkout_btn').click();
+        await this.page.waitForTimeout(2000); // Wait for the confirmation to process
     }
-    async selectShippingMethod() {
-        await this.page.locator('#shipping_method input[type="radio"]').first().check();
-        await this.page.locator('button[title="Continue"]').click();
+    async verifyOrderSuccessTitle() {
+        await this.page.waitForSelector('.maintext', {state: 'visible'});
+        const successTitle = await this.page.locator('.maintext').innerText();
+        const expectedTitle = 'Your Order Has Been Processed!';
+        expect(successTitle.trim()).toBe(expectedTitle.toUpperCase());
     }
 
     
